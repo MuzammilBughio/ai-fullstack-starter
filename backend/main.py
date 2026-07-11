@@ -15,6 +15,11 @@ app = FastAPI(
     version="1.0.0",
 )
 
+origins = [
+    "http://localhost:3000",
+    "https://ai-fullstack-starter-gj1yk1n4t-axiompilot.vercel.app/", 
+]
+
 # CORS — allows the Next.js frontend to talk to this API
 app.add_middleware(
     CORSMiddleware,
