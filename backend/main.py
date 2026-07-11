@@ -17,13 +17,13 @@ app = FastAPI(
 
 origins = [
     "http://localhost:3000",
-    "https://ai-fullstack-starter-gj1yk1n4t-axiompilot.vercel.app/", 
+    "https://ai-fullstack-starter-gj1yk1n4t-axiompilot.vercel.app",
 ]
 
 # CORS — allows the Next.js frontend to talk to this API
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[settings.FRONTEND_URL],
+    allow_origins=['*'],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -31,6 +31,7 @@ app.add_middleware(
 
 # Routers
 app.include_router(auth.router, prefix="/api")
+app.include_router(auth.router)
 
 # Add your project-specific routers here:
 # from routers import items
